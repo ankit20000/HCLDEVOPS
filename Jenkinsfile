@@ -2,7 +2,7 @@ import groovy.json.JsonOutput
 import groovy.transform.Field
 import groovy.json.JsonSlurper
 
-node ('build-machinejava') 
+node ('master') 
 {
   try {
     scannerHome = tool 'sonar'
@@ -76,16 +76,5 @@ stage('deploying_to_tomcat') {
 
 }
 
-----------------------------------Below is the Ansilbe yaml file----------------------
 
-
-
-
-
-- hosts: tomcat_server 
-  become: true
-  tasks: 
-    - name: deploying_to_tomcat
-        copy:
-          src: /op/playbooks/wabapp/target/sample.war
-          dest: /opt/apache-tomcat-8.5.32/webapps
+    
